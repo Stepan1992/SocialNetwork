@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row registrationHeader">
+        <div class="col-md-2 col-md-offset-2">
+        </div>
+        <div ng-show="warrantMassage">
+            <div class="col-md-4 varInp">
+                <p class="text-nowrap">Please enter verification code</p>
+            </div>
+            <div class="col-md-1 col-md-offset-1">
+                <input type="text" ng-model="verificationCode" class="form-control varInp">
+            </div>
+            <div class="col-md-1 varInp">
+                <button ng-click="checkVerification()" class="btn btn-xs">Ok</button>
+            </div>
+        </div>
+
+        <div ng-show="mailVerification">
+            <div class="col-md-6 col-md-offset-1 varInp">
+                <p class="text-nowrap"><a href="http://{{mail}}">Please activate your account</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 col-md-offset-4 logo avatarPicture">
+            <div><img ng-src="{{avatarPath}}" alt="Avatar" width="400px" height="300px"></div>
+            <input type="file" file-model="myFile"><br><br>
+            <button ng-click="uploadFile()">Upload</button>
+        </div>
+    </div>
+</div>

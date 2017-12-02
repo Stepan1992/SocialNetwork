@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row registrationHeader">
+        <div class="col-md-2 col-md-offset-2">
+        </div>
+        <div class="col-md-2 col-md-offset-2 login">
+            <div class="form-group emailNumber">
+                <label for="InputEmail1" class="text-nowrap">Електронна пошта чи номер телефону</label>
+                <input type="text" id="InputEmail1" ng-model="$parent.userEmail">
+            </div>
+        </div>
+        <div class="col-md-1 pass">
+            <div class="form-group userPass">
+                <label for="InputPass1">Пароль</label>
+                <input type="password" id="InputPass1" ng-model="$parent.userPass">
+                <p class="text-nowrap">Забули назву облікового запису?</p>
+            </div>
+        </div>
+        <div class="col-md-1 logIn">
+            <button ng-click="enter()">Увійти</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid findPass">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 forgetPass">
+            <div>
+                <p>Знайдіть свій обліковий запис</p>
+                <div class="col-md-9 col-md-offset-1">
+                    <p>Please enter your email or phone number to search for your account.</p>
+                    <input type="text" ng-model="$parent.inputloosePass">
+                </div>
+                <div class="col-md-3 col-md-offset-6">
+                    <button type="button" class="btn btn-primary" ng-click="searchFunc($parent.inputloosePass)">Пошук</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn" ng-click="denyFunc()">Скасувати</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

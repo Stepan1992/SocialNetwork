@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Social network</title>
+    <link rel="stylesheet" href="styles/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/fonts/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="app/jquery-3.2.1.min.js"></script>
+    <script src="styles/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="app/angular.min.js"></script>
+    <script src="app/angular-locale_uk-ua.js"></script>
+    <script src="app/angular-route.min.js"></script>
+    <script src="scripts/script.js"></script>
+</head>
+
+<body ng-controller="mainCtrl">
+    <div ng-include src="'templates/registration.html'" ng-show="currentView == 'registration'"></div>
+    <avatar ng-show="currentView == 'avatar'"></avatar>
+    <div ng-include src="'templates/forgetpass.html'" ng-show="currentView == 'forgetPass'"></div>
+    <div ng-include src="'templates/confirmCode.html'" ng-show="currentView == 'confirmCode'"></div>
+    <div ng-include src="'templates/createNewPass.html'" ng-show="currentView == 'createNewPass'"></div>
+</body>
+
+</html>

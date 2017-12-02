@@ -1,0 +1,122 @@
+<div class="container-fluid">
+    <div class="row registrationHeader">
+        <div class="col-md-2 col-md-offset-2">
+        </div>
+        <div class="col-md-2 col-md-offset-2 login">
+            <div class="form-group emailNumber">
+                <label for="InputEmail1" class="text-nowrap">Електронна пошта чи номер телефону</label>
+                <input type="text" id="InputEmail1" ng-model="$parent.userEmail">
+            </div>
+        </div>
+        <div class="col-md-1 pass">
+            <div class="form-group userPass">
+                <label for="InputPass1">Пароль</label>
+                <input type="password" id="InputPass1" ng-model="$parent.userPass">
+                <p class="text-nowrap">Забули назву облікового запису?</p>
+            </div>
+        </div>
+        <div class="col-md-1 logIn">
+            <button ng-click="enter()">Увійти</button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-md-5 col-md-offset-2 innerContent">
+            <p>Ми допомагаємо тримати зв'язок з
+                <br> рідними та близькими.</p>
+            <img src="assets/icons/GwFs3_KxNjS.png" alt="">
+        </div>
+        <div class="col-md-5 registration">
+            <h1>Зареєструватися</h1>
+            <h4>Це безкоштовно і так буде завжди.</h4>
+            <form name="registrationForm" novalidate ng-submit="addNewUser($parent.newUser, registrationForm)">
+                <div class="form-group">
+                    <div class="row userNames">
+                        <div class="col-md-5">
+                            <input type="text" class="form-control regUserName" required placeholder="Ім'я" ng-minlength="2" ng-maxlength="30" ng-model="$parent.newUser.regUserName"
+                                name="name" ng-pattern="$parent.namePattern" ng-blur="blurValidFunc('name')" ng-focus="focusValidFunc('name')"
+                                ng-class="$parent.redClass(registrationForm, registrationForm.name)">
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control regUserSecName" placeholder="Прізвище" ng-minlength="2" ng-maxlength="20" required
+                                ng-model="$parent.newUser.regUserSecName" name="surname" ng-pattern="$parent.namePattern" ng-blur="blurValidFuncSurname('surname')"
+                                ng-focus="focusValidFuncSurname('surname')" ng-class="$parent.redClassSurname(registrationForm, registrationForm.surname)">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <input type="text" class="form-control regUserEmailNumber" ng-pattern="$parent.verificationPattern" placeholder="Номер мобільного телефону або ел. пошта"
+                                ng-model="$parent.newUser.regUserEmailNumber" name="emailOrNumber" required ng-valid="true" ng-blur="blurValidFuncEmail('email')"
+                                ng-focus="focusValidFuncEmail('email')" ng-class="$parent.redClassEmail(registrationForm, registrationForm.emailOrNumber)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <input type="text" class="form-control regUserEmailNumber" placeholder="Новий пароль" ng-model="$parent.newUser.regUserPass"
+                                required name="password" ng-pattern="$parent.passPattern" ng-blur="blurValidFuncPass('pass')"
+                                ng-focus="focusValidFuncPass('pass')" ng-class="$parent.redClassPass(registrationForm, registrationForm.password)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 birthday">
+                        <h4>День народження</h4>
+                    </div>
+                </div>
+                <div class="row selectors">
+                    <div class="col-md-9">
+                        <select class="form-control" ng-model="$parent.selectedDay" ng-options="item for item in daysArr">
+                        </select>
+                        <select class="form-control" ng-model="$parent.selectedMonth" ng-options="item for item in monthArr">
+                        </select>
+                        <select class="form-control" ng-model="$parent.selectedYear" ng-options="item for item in yearsArr">
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <label class="gender" ng-class="genderRed(registrationForm)">
+                            <input type="radio" name="optionsMale" id="optionsFemale" ng-model="$parent.newUser.gender" value="female" required> жінка
+                        </label>
+
+                        <label class="gender" ng-class="genderRed(registrationForm)">
+                            <input type="radio" name="optionsMale" id="optionsMale" value="male" ng-model="$parent.newUser.gender" required> чоловік
+                            <span class="glyphicons glyphicons-exclamation-sign"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 regRules">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-9 sendRegForm">
+                        <button type="submit" class="btn btn-success btn-lg regButton">Створити обліковий запис</button>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                </div>
+                <div ng-show="registrationForm.name.$invalid && ($parent.warnMass == 'name')" 
+                class="arrow_box">Як вас звати?</div>
+
+                <div ng-show="registrationForm.emailOrNumber.$invalid && ($parent.warnMassEmail == 'email')" 
+                class=" arrow_boxEmail">Ці дані знадобляться для входу
+                    <br>та скидання пароля (за потреби)</div>
+
+
+                <div ng-show="registrationForm.password.$invalid && ($parent.warnMassPass == 'pass')" 
+                class="arrow_boxPass">Введіть комбінацію із неменше восьми знаків
+                    <br> серед яких цифри та літери в верхньому регістрі</div>
+                <div ng-show="registrationForm.surname.$invalid && ($parent.warnMassSurname == 'surname')" 
+                class="arrow_boxSurname">Ваше прізвище?</div>
+            </form>
+
+        </div>
+    </div>
+</div>
