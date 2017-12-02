@@ -1,0 +1,2 @@
+# SocialNetwork
+This is single page aplication that is developing on my own. I want to create my version of social networking service and this is my attempt. In development i am using MySQL database, Node.js, AngularJS and Bootstrap. Some usefull Node.js modules is used by me too, for examle Nodemailer, Nexmo and so on. I have already realized verification service in this app which activate your profile via email or sms. My inspiration is Facebook social network. Now i'm working in an intense way to develop and approve this app. 
